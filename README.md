@@ -15,7 +15,7 @@
 - 백엔드는 로그인한 사용자의 토큰으로 DB 에 접근 → RLS 정책이 "본인 할 일만" 을 강제.
   RLS 를 무시하는 service_role 키는 쓰지 않음.
 - 이전 SQLite 버전은 [sqlite-version/](sqlite-version/) 에 보관. `npm run start:sqlite` → http://localhost:3001
-- 과제 확인 절차: [VERIFY.md](VERIFY.md), 배포 준비물: [DEPLOY.md](DEPLOY.md)
+- 시연 화면: [DEMO.md](DEMO.md), 과제 확인 절차와 기록: [VERIFY.md](VERIFY.md), 배포 준비물: [DEPLOY.md](DEPLOY.md)
 
 ## 처음 설정
 
