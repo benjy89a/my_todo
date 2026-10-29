@@ -57,10 +57,11 @@ DB 코드와 키가 브라우저에 있으면 키를 복사해 DB 에 직접 요
 
 **DB 수준 확인:** SQL Editor 에서 [supabase/rls_test.sql](supabase/rls_test.sql) 실행 → `RLS 테스트 통과`
 
-## 제출용 기록 (한 줄씩 채우기)
+## 제출용 기록
 
-- 클라우드 전환: 길 A(SQLite, sqlite-version/) → 길 B(Supabase Postgres + Auth). DB 접근은 백엔드에만, 키는 .env 에만.
-- 로컬 저장 확인: (날짜) 길 A 재시작 후 할 일 유지, 완료·삭제 동작 확인
-- Supabase 저장 확인: (날짜) 길 B 재시작 후 유지, Table Editor 에서 행 확인
-- RLS 확인: (날짜) B 계정으로 A 의 할 일 조회 안 됨, 수정·삭제 요청 404, A 의 할 일 그대로 / rls_test.sql 통과
-- 배포 URL: (도전했다면)
+- **클라우드 전환:** 길 A(로컬 SQLite 파일 `todo.db`, [sqlite-version/](sqlite-version/)) → 길 B(Supabase Postgres + Supabase Auth). 화면은 `/api` 만 호출하고, DB 접근 코드와 접속 키는 백엔드(`supabase.js`, `server.js`, `.env`)에만 있음. 할 일마다 소유자 `user_id` 기록.
+- **로컬 저장 확인 (2026-10-29):** 길 A 에서 할 일 추가 → 완료 체크 → 서버 재시작 → 할 일과 완료 상태 그대로 → 삭제 후 목록에서 사라짐.
+- **Supabase 저장 확인 (2026-10-29):** 길 B 에서 로그인 후 추가·완료·삭제·태그 필터 동작. 서버를 여러 번 재시작하고 폴더를 옮겨 다시 실행해도 할 일 4개 유지. Supabase Table Editor 의 `todos` 표에도 행이 쌓이는 것 확인.
+- **RLS 확인 (2026-10-29):** 세 표 모두 RLS 켬, 정책은 "로그인한 본인 행만 조회·추가·수정·삭제". 로그인 없이 접근 → 조회 0건, 추가는 `new row violates row-level security policy` 로 거절. 없는(또는 남의) 할 일 id 로 수정·삭제 요청 → 404, 데이터 반환 없음. rls_test.sql(가짜 사용자 A·B 로 조회·수정·삭제·남의 명의 추가 시험) → `RLS 테스트 통과`.
+- **두 계정 RLS 확인 (2026-10-29):** 실제 계정 A·B 로 로그인 → B 화면에 A 의 할 일 안 보임, B 가 A 의 할 일 id 로 수정·삭제 요청 → 404 로 거절되고 데이터 반환 없음, A 에서 새로고침하면 원래 할 일 그대로.
+- **배포:** 하지 않음 (선택 사항). 준비물은 [DEPLOY.md](DEPLOY.md)
