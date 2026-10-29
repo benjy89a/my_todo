@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Todo (로컬 SQLite)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>할 일 <small>로컬 SQLite</small></h1>
+
+    <form id="add-form">
+      <input id="title" placeholder="할 일을 입력하세요" required autocomplete="off">
+      <div class="row">
+        <label>마감일 <input id="due" type="date"></label>
+        <input id="tags" placeholder="태그 (쉼표로 구분: 업무, 공부)" autocomplete="off">
+        <button type="submit">추가</button>
+      </div>
+    </form>
+
+    <nav id="status-filter">
+      <button data-status="all" class="active">전체</button>
+      <button data-status="active">진행 중</button>
+      <button data-status="done">완료</button>
+      <button data-status="overdue">마감 지남</button>
+    </nav>
+    <div id="tag-filter"></div>
+
+    <p id="error" hidden></p>
+    <ul id="list"></ul>
+    <p id="empty" hidden>할 일이 없어요.</p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
