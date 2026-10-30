@@ -1,7 +1,8 @@
 # Todo 앱 (Supabase 버전)
 
-> my_blog 안의 `todo-backend/` 폴더. 명령은 모두 이 폴더에서 실행해요 (`cd todo-backend`).
-> (같은 저장소의 `my-todo/` 는 이전 과제의 React 화면 앱으로, 이 앱과 별개예요.)
+> 이 앱은 GitHub 두 곳에 있어요: [benjy89a/my_todo](https://github.com/benjy89a/my_todo) (저장소 전체가 이 앱)
+> 와 [benjy89a/my_blog](https://github.com/benjy89a/my_blog) 의 `todo-backend/` 폴더. 명령은 `package.json` 이 있는 폴더에서 실행해요.
+> (my_blog 의 `my-todo/` 는 이전 과제의 React 화면 앱으로, 이 앱과 별개예요.)
 
 기획은 [PRD.md](PRD.md), DB 구조는 [DB_DESIGN.md](DB_DESIGN.md) + [supabase/schema.sql](supabase/schema.sql).
 

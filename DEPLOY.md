@@ -9,8 +9,8 @@ DB 는 이미 Supabase(클라우드)에 있으므로 로컬 실행·배포 모�
 
 | 준비물 | 값 |
 |---|---|
-| 코드 보관 위치 | GitHub `benjy89a/my_blog` 저장소의 `todo-backend/` 폴더 (Render 가 여기서 코드를 가져감) |
-| Root Directory | `todo-backend` (저장소 안의 이 폴더만 배포) |
+| 코드 보관 위치 | GitHub `benjy89a/my_todo` (추천, 저장소 전체가 이 앱) 또는 `benjy89a/my_blog` 의 `todo-backend/` 폴더 |
+| Root Directory | `my_todo` 로 배포하면 **비워 둠** / `my_blog` 로 배포하면 `todo-backend` |
 | 올리면 안 되는 것 | `.env`, `todo.db`, `node_modules/` → `.gitignore` 에 있음 |
 | Render 서비스 종류 | New → **Web Service**, Free 플랜 |
 | Region | Supabase 프로젝트와 같은(가까운) 지역 |
